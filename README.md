@@ -59,7 +59,7 @@ i.e., `Θ(𝑛)` in the worst case (for `ℎ = 𝑛 - 1`) and `Θ(log2𝑛)` in 
 
 _Note_: Trees are drawn from left to right (root node is on the far left).
 
-- Initial tree is rolled clockwise and counterclockwise. 
+- A random binary tree with seven nodes rolled clockwise and counterclockwise. 
 
 
 ```
@@ -103,7 +103,7 @@ PostOrder:  4 7 2 1 5 3 6
 
 
 - A full cycle of CCW roll transformations leading back to the initial tree. 
-(The number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.)
+(It can be observer that the number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.)
 
 <details>
     <summary><b><i>Click to expand</i></b></summary>
