@@ -1,18 +1,22 @@
 import java.util.stream.Stream;
 
-
+/**
+ * A small example of the roll algorithm applied to a random binary tree with ten nodes
+ *
+ * @author George Tanev (12/2018)
+ */
 public class Example {
 
     private static BinaryTreePrinter printer = new BinaryTreePrinter(System.out);
 
     public static void main(String[] args) {
-        final BinaryTreeNode root = new BinaryTreeNode<>(1);
-        final BinaryTreeNode left = new BinaryTreeNode<>(2);
-        final BinaryTreeNode right = new BinaryTreeNode<>(3);
+        final BinaryTreeNode<Character> root = new BinaryTreeNode<>('E');
+        final BinaryTreeNode<Character> left = new BinaryTreeNode<>('D');
+        final BinaryTreeNode<Character> right = new BinaryTreeNode<>('H');
 
-        left.setLeftChild(new BinaryTreeNode<>(4, null, new BinaryTreeNode<>(7)));
-        right.setLeftChild(new BinaryTreeNode<>(5));
-        right.setRightChild(new BinaryTreeNode<>(6));
+        left.setLeftChild(new BinaryTreeNode<>('B', new BinaryTreeNode<>('A'), new BinaryTreeNode<>('C')));
+        right.setLeftChild(new BinaryTreeNode<>('F', null, new BinaryTreeNode<>('G')));
+        right.setRightChild(new BinaryTreeNode<>('J', new BinaryTreeNode<>('I'), null));
 
         root.setLeftChild(left);
         root.setRightChild(right);
@@ -36,39 +40,50 @@ public class Example {
 
 
 /*
-        ┌────── 6
-┌────── 3
-│       └────── 5
-1
-└────── 2
-        │       ┌────── 7
-        └────── 4
 
-PreOrder:   1 2 4 7 3 5 6
-InOrder:    4 7 2 1 5 3 6
-PostOrder:  7 4 2 5 6 3 1
+        ┌────── J
+        │       └────── I
+┌────── H
+│       │       ┌────── G
+│       └────── F
+E
+└────── D
+        │       ┌────── C
+        └────── B
+                └────── A
 
-        ┌────── 1
-        │       │       ┌────── 3
-        │       │       │       └────── 6
-        │       └────── 5
-┌────── 2
-4
-└────── 7
+PreOrder:   E D B A C H F G J I
+InOrder:    A B C D E F G H I J
+PostOrder:  A C B D G F I J H E
 
-PreOrder:   4 7 2 1 5 3 6
-InOrder:    7 4 2 5 6 3 1
-PostOrder:  7 6 3 5 1 2 4
+                ┌────── E
+                │       │       ┌────── H
+                │       │       │       │       ┌────── J
+                │       │       │       └────── I
+                │       └────── F
+                │               └────── G
+        ┌────── D
+┌────── B
+│       └────── C
+A
 
-6
-│       ┌────── 5
-└────── 3
-        │               ┌────── 7
-        │               │       └────── 4
-        │       ┌────── 2
-        └────── 1
+PreOrder:   A B C D E F G H I J
+InOrder:    A C B D G F I J H E
+PostOrder:  C G J I H F E D B A
 
-PreOrder:   6 3 1 2 7 4 5
-InOrder:    1 2 4 7 3 5 6
-PostOrder:  4 7 2 1 5 3 6
+┌────── I
+J
+│       ┌────── G
+│       │       └────── F
+└────── H
+        │               ┌────── C
+        │               │       │       ┌────── A
+        │               │       └────── B
+        │       ┌────── D
+        └────── E
+
+PreOrder:   J H E D C B A G F I
+InOrder:    E D B A C H F G J I
+PostOrder:  A B C D E F G H I J
+
 */
