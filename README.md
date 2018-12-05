@@ -61,9 +61,7 @@ _Note_: Trees are drawn from left to right (root node is on the far left).
 
 - Initial tree is rolled clockwise and counterclockwise. 
 
-<details>
-  <summary>Click to expand</summary>
-  
+
 ```
         ┌────── 6
 ┌────── 3
@@ -101,14 +99,14 @@ PreOrder:   6 3 1 2 7 4 5
 InOrder:    1 2 4 7 3 5 6 
 PostOrder:  4 7 2 1 5 3 6
 ```
-</details>
+
 
 
 - A full cycle of CCW roll transformations leading back to the initial tree. 
 (The number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.)
 
 <details>
-  <summary>Click to expand</summary>
+    <summary><b><i>Click to expand</i></b></summary>
   
 ```
 1
