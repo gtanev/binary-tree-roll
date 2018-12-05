@@ -1,9 +1,9 @@
 # Binary Tree Roll Algorithm
 
-This is a simple implementation of my linear time binary tree roll algorithm in Java. The source code contains a simple
+This is a simple Java implementation of my linear time binary tree roll algorithm. The source code contains a simple
 class for creating binary tree node objects, a utility class implementing the clockwise (CW) and counterclockwise (CCW)
 variants of the algorithm, a helper class for printing to an output stream, and a basic example demonstrating the 
-execution of the algorithm with the resulting binary tree topologies and their depth-first traversals.
+execution of the algorithm with the resulting binary trees and their depth-first traversals.
 
 
 ## Introduction
@@ -55,11 +55,15 @@ complexity is proportional to the height of the given binary tree as the call st
 i.e., `Θ(𝑛)` in the worst case (for `ℎ = 𝑛 - 1`) and `Θ(log2𝑛)` in the best case (for `ℎ = ⌊log2𝑛⌋`).
 
 
-##Examples
+## Examples
 
 _Note_: Trees are drawn from left to right (root node is on the far left).
 
 - Initial tree is rolled clockwise and counterclockwise. 
+
+<details>
+  <summary>Click to expand</summary>
+  
 ```
         ┌────── 6
 ┌────── 3
@@ -97,10 +101,15 @@ PreOrder:   6 3 1 2 7 4 5
 InOrder:    1 2 4 7 3 5 6 
 PostOrder:  4 7 2 1 5 3 6
 ```
+</details>
+
 
 - A full cycle of CCW roll transformations leading back to the initial tree. 
-The number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.
+(The number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.)
 
+<details>
+  <summary>Click to expand</summary>
+  
 ```
 1
 │       ┌────── 4
@@ -328,7 +337,9 @@ InOrder:    3 2 4 1
 PostOrder:  3 4 2 1
 
 ```
+</details>
+
 
 
 ---
-For a more detailed analysis and in-depth explanation of the algorithm check out this paper: https://ieeexplore.ieee.org/document/8011115/
+For a more detailed analysis and in-depth explanation of the algorithm, please refer to this paper: https://ieeexplore.ieee.org/document/8011115/
