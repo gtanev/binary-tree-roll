@@ -11,12 +11,11 @@ execution of the algorithm with the resulting binary trees and their depth-first
 Binary tree roll is an operation by which a binary tree is restructured in such a way that its topology or graphical representation
 appears to be rolled at a 90 degree angle, either in a clockwise or a counter-clockwise direction. The two directions 
 produce two inverse variants of the roll operation, a clockwise (CW) and a counterclockwise (CCW) roll. A major 
-consequence of this operation is that two of the depth-first traversals of the rolled binary tree are identical to 
+result of this operation is that two of the depth-first traversals of the rolled binary tree are identical to 
 another two traversals of the original binary tree. 
 
 We can define the CW and CCW roll functions in terms of the 
 preorder, inorder, and postorder traversal functions of the original (T1) and the rolled (T2) tree, as follows:
-
 
 - **CW(T1)** = T2 ⇔ (inorder(T1) = preorder(T2) ∧ postorder(T1) = inorder(T2))
 - **CCW(T1)** = T2 ⇔ (preorder(T1) = inorder(T2) ∧ inorder(T1) = postorder(T2))
@@ -28,29 +27,29 @@ preorder, inorder, and postorder traversal functions of the original (T1) and th
 
 ```
 def rollCCW(root, parent = null) 
-    if (root is not null)
-        if (root.right is not null) 
+    if root != null
+        if root.right != null
             rollCCW(root.right, parent)
             root.right.left = root
             root.right = null
-        else if (parent is not null)
+        else if parent != null
             parent.right = root
             parent.left = null        
-        if (root.left is not null) 
+        if root.left != null
             rollCCW(root.left, root)        
 ```
 
 The algorithm "rewires" the nodes of any given binary tree in such a way that it performs the complete roll operation by 
-visiting each node exactly once during a recursive inorder traversal, producing the expected tree in line
+visiting each node exactly once during a recursive inorder traversal, producing the expected tree in accordance
 with the formal definition of the roll operation. 
 
-Applying the roll transformation in a single direction successively on any binary tree (mutating it in place) results 
-in an idempotent sequential pass through a unique subset of all possible binary tree topologies of a given size, until 
-the topology of the initial tree is eventually reached. Note that the number of distinct binary trees obtainable 
-through this cyclic transformation can either be equal to or a multiple of the number of obtained distinct topologies, 
-meaning there can be trees that are topologically identical but have their nodes (i.e., node values) shuffled around.
+Applying the roll transformation successively in a single direction on any binary tree (mutating it in place) results 
+in a sequential pass through a unique subset of all possible binary tree topologies of a given size, until 
+the topology of the initial tree is eventually reached. Note that the number of distinct binary trees obtained
+through this cyclic transformation can be either equal to or a multiple of the number of obtained distinct topologies, 
+as there are trees that are topologically identical but have their nodes at different positions.
 
-The running time of this algorithm is always linear or `Θ(𝑛)` as it visits each node once, and its space 
+The running time of this algorithm is always linear or `Θ(𝑛)` analogous to the linear traversal it performs, and its space 
 complexity is proportional to the height of the given binary tree as the call stack grows up to `ℎ + 1` frames, 
 i.e., `Θ(𝑛)` in the worst case (for `ℎ = 𝑛 - 1`) and `Θ(log2𝑛)` in the best case (for `ℎ = ⌊log2𝑛⌋`).
 
@@ -102,7 +101,7 @@ PostOrder:  4 7 2 1 5 3 6
 
 
 
-- A full cycle of CCW roll transformations leading back to the initial tree. 
+- A complete cycle of CCW roll transformations leading back to the original tree. 
 (It can be observer that the number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.)
 
 <details>
