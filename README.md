@@ -12,9 +12,7 @@ Binary tree roll is an operation by which a binary tree is restructured in such 
 appears to be rolled at a 90 degree angle, either in a clockwise or a counter-clockwise direction. The two directions 
 produce two inverse variants of the roll operation, a clockwise (CW) and a counterclockwise (CCW) roll. A major 
 result of this operation is that two of the depth-first traversals of the rolled binary tree are identical to 
-another two traversals of the original binary tree. 
-
-We can define the CW and CCW roll functions in terms of the 
+another two traversals of the original binary tree. In fact, we can define the CW and CCW roll functions in terms of the 
 preorder, inorder, and postorder traversal functions of the original (T1) and the rolled (T2) tree, as follows:
 
 - **CW(T1)** = T2 ⇔ (inorder(T1) = preorder(T2) ∧ postorder(T1) = inorder(T2))
@@ -58,7 +56,7 @@ i.e., `Θ(𝑛)` in the worst case (for `ℎ = 𝑛 - 1`) and `Θ(log2𝑛)` in 
 
 _Note_: Trees are drawn from left to right (root node is on the far left).
 
-- A random binary tree with seven nodes rolled clockwise and counterclockwise. 
+- A random binary tree with seven nodes rolled clockwise and counterclockwise: 
 
 
 ```
@@ -101,7 +99,7 @@ PostOrder:  4 7 2 1 5 3 6
 
 
 
-- A complete cycle of CCW roll transformations leading back to the original tree. 
+- A complete cycle of CCW roll transformations leading back to the original tree: 
 (It can be observer that the number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.)
 
 <details>
