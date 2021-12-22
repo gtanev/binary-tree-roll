@@ -1,14 +1,14 @@
 # Binary Tree Roll Algorithm
 
-This is a simple Java implementation of my linear time binary tree roll algorithm. The source code contains a simple
-class for creating binary tree node objects, a utility class implementing the clockwise (CW) and counterclockwise (CCW)
+This is a simple Java implementation of my linear time [binary tree roll algorithm](https://ieeexplore.ieee.org/document/8011115/). The source code contains a POJO 
+class for creating binary tree nodes, a utility class implementing the clockwise (CW) and counterclockwise (CCW) 
 variants of the algorithm, a helper class for printing to an output stream, and a basic example demonstrating the 
 execution of the algorithm with the resulting binary trees and their depth-first traversals.
 
 
 ## Introduction
 
-Binary tree roll is an operation by which a binary tree is restructured in such a way that its topology or graphical representation
+Binary tree roll is an operation by which a binary tree is restructured in such a way that its topological representation
 appears to be rolled at a 90 degree angle, either in a clockwise or a counter-clockwise direction. The two directions 
 produce two inverse variants of the roll operation, a clockwise (CW) and a counterclockwise (CCW) roll. A major 
 result of this operation is that two of the depth-first traversals of the rolled binary tree are identical to 
@@ -37,15 +37,15 @@ def rollCCW(root, parent = null)
             rollCCW(root.left, root)        
 ```
 
-The algorithm "rewires" the nodes of any given binary tree in such a way that it performs the complete roll operation by 
+This algorithm "rewires" the nodes of any given binary tree in such a way that it performs the complete roll operation by 
 visiting each node exactly once during a recursive inorder traversal, producing the expected tree in accordance
 with the formal definition of the roll operation. 
 
 Applying the roll transformation successively in a single direction on any binary tree (mutating it in place) results 
 in a sequential pass through a unique subset of all possible binary tree topologies of a given size, until 
 the topology of the initial tree is eventually reached. Note that the number of distinct binary trees obtained
-through this cyclic transformation can be either equal to or a multiple of the number of obtained distinct topologies, 
-as there are trees that are topologically identical but have their nodes at different positions.
+through this cyclic transformation can be either equal to or a multiple of the number of possible topologies, 
+as there are trees that are topologically identical to each other but have their nodes at different positions.
 
 The running time of this algorithm is always linear or `Θ(𝑛)` analogous to the linear traversal it performs, and its space 
 complexity is proportional to the height of the given binary tree as the call stack grows up to `ℎ + 1` frames, 
@@ -100,10 +100,7 @@ PostOrder:  4 7 2 1 5 3 6
 
 
 - A complete cycle of CCW roll transformations leading back to the original tree: 
-(It can be observer that the number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.)
 
-<details>
-    <summary><b><i>Click to expand</i></b></summary>
   
 ```
 1
@@ -332,9 +329,7 @@ InOrder:    3 2 4 1
 PostOrder:  3 4 2 1
 
 ```
-</details>
-
-
+It can be observer that the number of distinct topologies in the obtained set is 6, while the number of distinct binary trees is 24.
 
 ---
 For a more detailed analysis and in-depth explanation of the algorithm, please refer to this paper: https://ieeexplore.ieee.org/document/8011115/
